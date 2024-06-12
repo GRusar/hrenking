@@ -26,6 +26,7 @@ source-repository head
 library
   exposed-modules:
       Test.Hrenking
+      Test.Hrenking.Types
   other-modules:
       Paths_hrenking
   autogen-modules:
@@ -35,6 +36,10 @@ library
   ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints
   build-depends:
       base >=4.7 && <5
+    , containers
+    , github
+    , sqlite-simple
+    , transformers
   default-language: Haskell2010
 
 test-suite hrenking-test
@@ -49,5 +54,9 @@ test-suite hrenking-test
   ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       base >=4.7 && <5
+    , containers
+    , github
     , hrenking
+    , sqlite-simple
+    , transformers
   default-language: Haskell2010
