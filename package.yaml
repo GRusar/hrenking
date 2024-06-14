@@ -39,6 +39,11 @@ ghc-options:
 
 library:
   source-dirs: src
+  default-extensions:
+    - OverloadedRecordDot
+    - OverloadedStrings
+    - UnicodeSyntax
+
 
 tests:
   hrenking-test:
