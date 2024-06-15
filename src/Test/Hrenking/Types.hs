@@ -4,10 +4,7 @@
 
 module Test.Hrenking.Types  where
 
-import Data.Ord (compare)
 import Data.Map (Map)
-
-import Prelude ((==), (++), (<>), Either, Eq, IO, Ord, Show, String, show)
 
 -- | Log = [String]
 type Log = [String]
@@ -25,12 +22,12 @@ type FeatureName = String
 type Description = String
 type DepsList = [String]
 
-data Context a  = Context   String [Scenario a] | Background [Step a]
-data Scenario a = Scenario  String [Step a] | Before [Step a]
-data Step a     = Given     String (a -> IO (Either Error a))
-                | When      String (a -> IO (Either Error a))
-                | When_     String (a -> IO (Either Error ()))
-                | Then      String (a -> IO ())
+data Context a  = Context   Description [Scenario a] | Background [Step a]
+data Scenario a = Scenario  Description [Step a] | Before [Step a]
+data Step a     = Given     Description (a -> IO (Either Error a))
+                | When      Description (a -> IO (Either Error a))
+                | When_     Description (a -> IO (Either Error ()))
+                | Then      Description (a -> IO ())
 
 deriving anyclass instance Eq (Feature a)
 deriving anyclass instance Ord (Feature a)
