@@ -34,6 +34,7 @@ library
   hs-source-dirs:
       src
   default-extensions:
+      LambdaCase
       OverloadedRecordDot
       OverloadedStrings
       UnicodeSyntax
@@ -42,6 +43,7 @@ library
       base >=4.7 && <5
     , containers
     , github
+    , mtl
     , sqlite-simple
     , transformers
   default-language: Haskell2010
@@ -50,6 +52,7 @@ test-suite hrenking-test
   type: exitcode-stdio-1.0
   main-is: Spec.hs
   other-modules:
+      Test.HrenkingSpec
       Paths_hrenking
   autogen-modules:
       Paths_hrenking
@@ -61,6 +64,8 @@ test-suite hrenking-test
     , containers
     , github
     , hrenking
+    , hspec
+    , mtl
     , sqlite-simple
     , transformers
   default-language: Haskell2010

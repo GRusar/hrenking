@@ -22,9 +22,10 @@ description:         Please see the README on GitHub at <https://github.com/gith
 dependencies:
 - base >= 4.7 && < 5
 - containers
-- transformers
 - github
+- mtl
 - sqlite-simple
+- transformers
 
 ghc-options:
 - -Wall
@@ -40,10 +41,10 @@ ghc-options:
 library:
   source-dirs: src
   default-extensions:
+    - LambdaCase
     - OverloadedRecordDot
     - OverloadedStrings
     - UnicodeSyntax
-
 
 tests:
   hrenking-test:
@@ -55,3 +56,4 @@ tests:
     - -with-rtsopts=-N
     dependencies:
     - hrenking
+    - hspec
