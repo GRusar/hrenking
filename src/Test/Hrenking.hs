@@ -4,10 +4,12 @@ import Control.Monad.State
 
 import Test.Hrenking.Types
 
-runStep :: Step a -> StateT (a, Log, TestResult) IO ()
+runStep :: Step a -> StateT a IO (Log, TestResult)
 runStep (Given _ action) = do
-  (state, log, result) <- get
-  result <- lift $ action state
-  case result of
-    Right s -> put (s, log, Passed)
+  state <- get
+  resultEither <- lift $ action state
+  case resultEither of
+    Right s -> do
+      put s
+      return ([], Passed)
     Left  e -> error "Error"
